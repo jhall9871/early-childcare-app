@@ -1,22 +1,22 @@
-#Early
-##Track enrollment and student progress at an early childhood care facility
+# Early
+## Track enrollment and student progress at an early childhood care facility
 
 Early will be a one-stop shop for Montessori Schools, Day Cares, and other early childhood care facilities to manage enrollment and student progress. Caregivers, teachers, and administrators will all be able to log in and manage data important to the running of the school and the well-being of the children in their care.
 
-##User Stories
+## User Stories
 
 Please see the following link for user stories:
 https://miro.com/app/board/o9J_knv14rM=/?moveToWidget=3074457349249047993&cot=15
 
-##Wireframes
+## Wireframes
 
 Please see the following student dashboard:
 https://www.canva.com/design/DAEEflxCyiU/share/preview?token=tDgiB8rrBIvHREgjhwSdUA&role=EDITOR&utm_content=DAEEflxCyiU&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
 
-##Models and Properties
+## Models and Properties
 FK = Foreign Key
 
-###Child
+### Child
 * id
 * first_name
 * last_name
@@ -24,7 +24,7 @@ FK = Foreign Key
 * birthdate
 * caregiver_id (FK)
 
-###Caregiver
+### Caregiver
 * id
 * first_name
 * last_name
@@ -32,27 +32,27 @@ FK = Foreign Key
 * salutation
 * child_id (FK)
 
-###Teacher
+### Teacher
 * id
 * first_name
 * last_name
 * pronouns
 * salutation
 
-###Admin
+### Admin
 * id
 * first_name
 * last_name
 * pronouns
 * salutation
 
-###Skill
+### Skill
 * id
 * category
 * abbreviation
 * description
 
-##Sample skills
+## Sample skills
 
 ```
 const skills = [
