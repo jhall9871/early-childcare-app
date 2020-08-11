@@ -48,6 +48,7 @@ FK = Foreign Key
 
 ###Skill
 * id
+* category
 * abbreviation
 * description
 
