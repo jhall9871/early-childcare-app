@@ -14,7 +14,6 @@ Please see the following student dashboard:
 https://www.canva.com/design/DAEEflxCyiU/share/preview?token=tDgiB8rrBIvHREgjhwSdUA&role=EDITOR&utm_content=DAEEflxCyiU&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
 
 ## Models and Properties
-FK = Foreign Key
 
 ### Child
 * id
@@ -22,7 +21,6 @@ FK = Foreign Key
 * last_name
 * pronouns
 * birthdate
-* caregiver_id (FK)
 
 ### Caregiver
 * id
@@ -30,7 +28,6 @@ FK = Foreign Key
 * last_name
 * pronouns
 * salutation
-* child_id (FK)
 
 ### Teacher
 * id
@@ -51,6 +48,9 @@ FK = Foreign Key
 * category
 * abbreviation
 * description
+
+## Join Tables
+Please see https://dbdiagram.io/d/5f2afb2008c7880b65c539f0 for join table structure.
 
 ## Sample skills
 
