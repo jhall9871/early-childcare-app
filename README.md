@@ -13,44 +13,12 @@ https://miro.com/app/board/o9J_knv14rM=/?moveToWidget=3074457349249047993&cot=15
 Please see the following student dashboard:
 https://www.canva.com/design/DAEEflxCyiU/share/preview?token=tDgiB8rrBIvHREgjhwSdUA&role=EDITOR&utm_content=DAEEflxCyiU&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
 
-## Models and Properties
+## Models and Join Tables
+Please see https://dbdiagram.io/d/5f2afb2008c7880b65c539f0 for join table structure and model properties.
 
-### Child
-* id
-* first_name
-* last_name
-* pronouns
-* birthdate
-
-### Caregiver
-* id
-* first_name
-* last_name
-* pronouns
-* salutation
-
-### Teacher
-* id
-* first_name
-* last_name
-* pronouns
-* salutation
-
-### Admin
-* id
-* first_name
-* last_name
-* pronouns
-* salutation
-
-### Skill
-* id
-* category
-* abbreviation
-* description
-
-## Join Tables
-Please see https://dbdiagram.io/d/5f2afb2008c7880b65c539f0 for join table structure.
+## Libraries and Resources
+* Tutorial: creating a burger menu using styled components: https://css-tricks.com/hamburger-menu-with-a-side-of-react-hooks-and-styled-components/
+* 
 
 ## Sample skills
 

@@ -906,3 +906,530 @@ Processing by TeachersController#index as HTML
 Completed 200 OK in 36ms (Views: 23.1ms | ActiveRecord: 11.4ms | Allocations: 6544)
 
 
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (197.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "early_api_development"[0m
+  [1m[35m (25.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "early_api_test"[0m
+  [1m[35m (1840.7ms)[0m  [1m[35mCREATE DATABASE "early_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (291.3ms)[0m  [1m[35mCREATE DATABASE "early_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (70.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "salutation" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "caregivers" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "caregivers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "salutation" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "children" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "children" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "birthday" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "category" character varying, "abbreviation" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers" CASCADE[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "salutation" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200811011110)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200811010949),
+(20200811011015),
+(20200811011033),
+(20200811011049);
+
+[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-11 16:07:29.057297"], ["updated_at", "2020-08-11 16:07:29.057297"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "53fb4f579b13a0c7a16fcef500207b83cfef305c"], ["created_at", "2020-08-11 16:07:29.067028"], ["updated_at", "2020-08-11 16:07:29.067028"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins" CASCADE[0m
+  [1m[35m (23.5ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "salutation" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "caregivers" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "caregivers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "salutation" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "children" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "children" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "birthday" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "skills" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "category" character varying, "abbreviation" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers" CASCADE[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "pronouns" character varying, "salutation" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200811011110)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200811010949),
+(20200811011015),
+(20200811011033),
+(20200811011049);
+
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-11 16:07:29.172251"], ["updated_at", "2020-08-11 16:07:29.172251"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-08-11 16:07:29.180136"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "53fb4f579b13a0c7a16fcef500207b83cfef305c"], ["created_at", "2020-08-11 16:07:29.187060"], ["updated_at", "2020-08-11 16:07:29.187060"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Roll a Mat and Put it Away"], ["created_at", "2020-08-11 16:07:29.328644"], ["updated_at", "2020-08-11 16:07:29.328644"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Walk Around the Mat"], ["created_at", "2020-08-11 16:07:29.334520"], ["updated_at", "2020-08-11 16:07:29.334520"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Carry a Chair"], ["created_at", "2020-08-11 16:07:29.339129"], ["updated_at", "2020-08-11 16:07:29.339129"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Carry Objects on a Tray"], ["created_at", "2020-08-11 16:07:29.347534"], ["updated_at", "2020-08-11 16:07:29.347534"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Carry Liquids on a Tray"], ["created_at", "2020-08-11 16:07:29.352099"], ["updated_at", "2020-08-11 16:07:29.352099"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Walk or Sit on the Line"], ["created_at", "2020-08-11 16:07:29.356677"], ["updated_at", "2020-08-11 16:07:29.356677"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Walk Next to the Line"], ["created_at", "2020-08-11 16:07:29.361172"], ["updated_at", "2020-08-11 16:07:29.361172"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Stack a Tower with Blocks"], ["created_at", "2020-08-11 16:07:29.365578"], ["updated_at", "2020-08-11 16:07:29.365578"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Clap to Music with Your Hands"], ["created_at", "2020-08-11 16:07:29.369957"], ["updated_at", "2020-08-11 16:07:29.369957"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Tap to Music with Sticks"], ["created_at", "2020-08-11 16:07:29.374356"], ["updated_at", "2020-08-11 16:07:29.374356"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Dance and Sing without Falling"], ["created_at", "2020-08-11 16:07:29.378518"], ["updated_at", "2020-08-11 16:07:29.378518"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Outdoor Play – Climb, Swing, Run"], ["created_at", "2020-08-11 16:07:29.383132"], ["updated_at", "2020-08-11 16:07:29.383132"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Gross Motor Skills"], ["abbreviation", "grossmotor"], ["description", "Enjoy Daily Walks Outside"], ["created_at", "2020-08-11 16:07:29.387733"], ["updated_at", "2020-08-11 16:07:29.387733"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Open & Close Lids"], ["created_at", "2020-08-11 16:07:29.392041"], ["updated_at", "2020-08-11 16:07:29.392041"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Pour Water from a Pitcher"], ["created_at", "2020-08-11 16:07:29.396260"], ["updated_at", "2020-08-11 16:07:29.396260"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Sponge Water Transfer"], ["created_at", "2020-08-11 16:07:29.400397"], ["updated_at", "2020-08-11 16:07:29.400397"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Wash Vegetables and Fruit"], ["created_at", "2020-08-11 16:07:29.404544"], ["updated_at", "2020-08-11 16:07:29.404544"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Wash Dishes & the Table"], ["created_at", "2020-08-11 16:07:29.408927"], ["updated_at", "2020-08-11 16:07:29.408927"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Peel & Cut a Carrot, Banana, Apple"], ["created_at", "2020-08-11 16:07:29.413293"], ["updated_at", "2020-08-11 16:07:29.413293"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Set a Table, Sort Cutlery, Fold Napkin"], ["created_at", "2020-08-11 16:07:29.417432"], ["updated_at", "2020-08-11 16:07:29.417432"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Pour/Spoon Beans, Rice, Salt"], ["created_at", "2020-08-11 16:07:29.421714"], ["updated_at", "2020-08-11 16:07:29.421714"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Whisk, Stir, Sift, Ladle, Bake, Cook"], ["created_at", "2020-08-11 16:07:29.426221"], ["updated_at", "2020-08-11 16:07:29.426221"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Pack a Lunch or Snack"], ["created_at", "2020-08-11 16:07:29.430704"], ["updated_at", "2020-08-11 16:07:29.430704"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Learn Knife Skills & Butter Bread"], ["created_at", "2020-08-11 16:07:29.435264"], ["updated_at", "2020-08-11 16:07:29.435264"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Crack Nuts"], ["created_at", "2020-08-11 16:07:29.443175"], ["updated_at", "2020-08-11 16:07:29.443175"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Squeeze Orange Juice"], ["created_at", "2020-08-11 16:07:29.447689"], ["updated_at", "2020-08-11 16:07:29.447689"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Kitchen Skills"], ["abbreviation", "kitchen"], ["description", "Use a Rolling Pin & Cookie Cutters"], ["created_at", "2020-08-11 16:07:29.452152"], ["updated_at", "2020-08-11 16:07:29.452152"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Feeding Self (Fork, Spoon, Cup)"], ["created_at", "2020-08-11 16:07:29.456560"], ["updated_at", "2020-08-11 16:07:29.456560"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Dressing Frames"], ["created_at", "2020-08-11 16:07:29.460774"], ["updated_at", "2020-08-11 16:07:29.460774"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Dressing Self"], ["created_at", "2020-08-11 16:07:29.465061"], ["updated_at", "2020-08-11 16:07:29.465061"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Using Toilet, Wipe, & Flush"], ["created_at", "2020-08-11 16:07:29.469398"], ["updated_at", "2020-08-11 16:07:29.469398"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.5ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Washing Hands, Face, Body"], ["created_at", "2020-08-11 16:07:29.473838"], ["updated_at", "2020-08-11 16:07:29.473838"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Brushing Teeth"], ["created_at", "2020-08-11 16:07:29.478513"], ["updated_at", "2020-08-11 16:07:29.478513"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Cleaning & Clipping Nails"], ["created_at", "2020-08-11 16:07:29.482601"], ["updated_at", "2020-08-11 16:07:29.482601"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Clip Clothespins"], ["created_at", "2020-08-11 16:07:29.486769"], ["updated_at", "2020-08-11 16:07:29.486769"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Roll a Pair of Socks"], ["created_at", "2020-08-11 16:07:29.491115"], ["updated_at", "2020-08-11 16:07:29.491115"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Use Clothes Pegs"], ["created_at", "2020-08-11 16:07:29.495311"], ["updated_at", "2020-08-11 16:07:29.495311"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Hang Up and Put Clothes Away"], ["created_at", "2020-08-11 16:07:29.499657"], ["updated_at", "2020-08-11 16:07:29.499657"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Wash Clothes"], ["created_at", "2020-08-11 16:07:29.503824"], ["updated_at", "2020-08-11 16:07:29.503824"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Hang Jacket on Low Hook"], ["created_at", "2020-08-11 16:07:29.508157"], ["updated_at", "2020-08-11 16:07:29.508157"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Fold a T-Shirt (3.5 y/o)"], ["created_at", "2020-08-11 16:07:29.512402"], ["updated_at", "2020-08-11 16:07:29.512402"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Self"], ["abbreviation", "self"], ["description", "Folding Work (Towels)"], ["created_at", "2020-08-11 16:07:29.516739"], ["updated_at", "2020-08-11 16:07:29.516739"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Use a Dustpan and Small Brush"], ["created_at", "2020-08-11 16:07:29.521187"], ["updated_at", "2020-08-11 16:07:29.521187"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Use a Dustpan and Small Brush"], ["created_at", "2020-08-11 16:07:29.525618"], ["updated_at", "2020-08-11 16:07:29.525618"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Sweep with a Child-Sized Broom"], ["created_at", "2020-08-11 16:07:29.532375"], ["updated_at", "2020-08-11 16:07:29.532375"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Wipe up a Spill and Use a Mop"], ["created_at", "2020-08-11 16:07:29.536579"], ["updated_at", "2020-08-11 16:07:29.536579"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Vacuum (hand-held)"], ["created_at", "2020-08-11 16:07:29.540728"], ["updated_at", "2020-08-11 16:07:29.540728"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Dust"], ["created_at", "2020-08-11 16:07:29.544873"], ["updated_at", "2020-08-11 16:07:29.544873"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Polish – Wood, Metal, Leather"], ["created_at", "2020-08-11 16:07:29.549169"], ["updated_at", "2020-08-11 16:07:29.549169"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Plant Vegetable Seeds"], ["created_at", "2020-08-11 16:07:29.553332"], ["updated_at", "2020-08-11 16:07:29.553332"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Clean a House Plant"], ["created_at", "2020-08-11 16:07:29.557557"], ["updated_at", "2020-08-11 16:07:29.557557"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Clean a Window or Mirror"], ["created_at", "2020-08-11 16:07:29.561624"], ["updated_at", "2020-08-11 16:07:29.561624"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Flower Arranging"], ["created_at", "2020-08-11 16:07:29.565874"], ["updated_at", "2020-08-11 16:07:29.565874"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Care of Environment"], ["abbreviation", "environment"], ["description", "Return Materials to the Shelf"], ["created_at", "2020-08-11 16:07:29.569938"], ["updated_at", "2020-08-11 16:07:29.569938"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Daily Greeting & Introduction of Self"], ["created_at", "2020-08-11 16:07:29.574034"], ["updated_at", "2020-08-11 16:07:29.574034"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Say “Please” and “Thank You”"], ["created_at", "2020-08-11 16:07:29.578273"], ["updated_at", "2020-08-11 16:07:29.578273"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Table Manners"], ["created_at", "2020-08-11 16:07:29.582862"], ["updated_at", "2020-08-11 16:07:29.582862"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Answer the Telephone"], ["created_at", "2020-08-11 16:07:29.587159"], ["updated_at", "2020-08-11 16:07:29.587159"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Blow the Nose"], ["created_at", "2020-08-11 16:07:29.591314"], ["updated_at", "2020-08-11 16:07:29.591314"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Cover a Cough/Sneeze"], ["created_at", "2020-08-11 16:07:29.595589"], ["updated_at", "2020-08-11 16:07:29.595589"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Say \"Excuse Me\""], ["created_at", "2020-08-11 16:07:29.599828"], ["updated_at", "2020-08-11 16:07:29.599828"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Learn to Listen (Silent Game)"], ["created_at", "2020-08-11 16:07:29.604275"], ["updated_at", "2020-08-11 16:07:29.604275"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Wait Your Turn & Stand in Line"], ["created_at", "2020-08-11 16:07:29.608720"], ["updated_at", "2020-08-11 16:07:29.608720"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Practice Kindness"], ["created_at", "2020-08-11 16:07:29.613212"], ["updated_at", "2020-08-11 16:07:29.613212"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Gently Care for Animals"], ["created_at", "2020-08-11 16:07:29.619352"], ["updated_at", "2020-08-11 16:07:29.619352"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Pick Up Trash & Recycle"], ["created_at", "2020-08-11 16:07:29.623667"], ["updated_at", "2020-08-11 16:07:29.623667"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Manners"], ["abbreviation", "manners"], ["description", "Respect Living Things (Insects/Plants)"], ["created_at", "2020-08-11 16:07:29.627779"], ["updated_at", "2020-08-11 16:07:29.627779"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Threading Napkin Holders onto a Scarf"], ["created_at", "2020-08-11 16:07:29.631885"], ["updated_at", "2020-08-11 16:07:29.631885"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Threading Large Beads on a Straw"], ["created_at", "2020-08-11 16:07:29.636622"], ["updated_at", "2020-08-11 16:07:29.636622"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Bead Stringing"], ["created_at", "2020-08-11 16:07:29.640802"], ["updated_at", "2020-08-11 16:07:29.640802"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Sort Buttons by Size/Color"], ["created_at", "2020-08-11 16:07:29.644967"], ["updated_at", "2020-08-11 16:07:29.644967"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Weave a Ribbon (4y/o)"], ["created_at", "2020-08-11 16:07:29.649008"], ["updated_at", "2020-08-11 16:07:29.649008"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Lacing & Braiding"], ["created_at", "2020-08-11 16:07:29.653243"], ["updated_at", "2020-08-11 16:07:29.653243"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Simple Use of Thread and Needle"], ["created_at", "2020-08-11 16:07:29.657470"], ["updated_at", "2020-08-11 16:07:29.657470"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Sewing Button onto Cloth"], ["created_at", "2020-08-11 16:07:29.661511"], ["updated_at", "2020-08-11 16:07:29.661511"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Transfer Activities – Fingers, Tweezers, Tongs, Eyedroppers, Magnets"], ["created_at", "2020-08-11 16:07:29.665647"], ["updated_at", "2020-08-11 16:07:29.665647"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Stack and Sort Coins"], ["created_at", "2020-08-11 16:07:29.669848"], ["updated_at", "2020-08-11 16:07:29.669848"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Fine Motor Skills"], ["abbreviation", "finemotor"], ["description", "Grate Soap(4 y / o)"], ["created_at", "2020-08-11 16:07:29.673953"], ["updated_at", "2020-08-11 16:07:29.673953"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Wash an Easel"], ["created_at", "2020-08-11 16:07:29.678334"], ["updated_at", "2020-08-11 16:07:29.678334"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Clean a Vinyl Apron"], ["created_at", "2020-08-11 16:07:29.682532"], ["updated_at", "2020-08-11 16:07:29.682532"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Sharpen Pencils"], ["created_at", "2020-08-11 16:07:29.686855"], ["updated_at", "2020-08-11 16:07:29.686855"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Color & Paint"], ["created_at", "2020-08-11 16:07:29.691189"], ["updated_at", "2020-08-11 16:07:29.691189"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Salt Drawing"], ["created_at", "2020-08-11 16:07:29.695454"], ["updated_at", "2020-08-11 16:07:29.695454"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Sponge Painting"], ["created_at", "2020-08-11 16:07:29.699973"], ["updated_at", "2020-08-11 16:07:29.699973"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Rubbings & Stamping"], ["created_at", "2020-08-11 16:07:29.706154"], ["updated_at", "2020-08-11 16:07:29.706154"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Modeling with Clay"], ["created_at", "2020-08-11 16:07:29.710443"], ["updated_at", "2020-08-11 16:07:29.710443"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Unwinding and Winding Yarn"], ["created_at", "2020-08-11 16:07:29.714706"], ["updated_at", "2020-08-11 16:07:29.714706"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Tearing Tissue Paper"], ["created_at", "2020-08-11 16:07:29.718759"], ["updated_at", "2020-08-11 16:07:29.718759"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Cutting with Scissors"], ["created_at", "2020-08-11 16:07:29.723097"], ["updated_at", "2020-08-11 16:07:29.723097"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Gluing"], ["created_at", "2020-08-11 16:07:29.727297"], ["updated_at", "2020-08-11 16:07:29.727297"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Art and School"], ["abbreviation", "artandschool"], ["description", "Color Mixing"], ["created_at", "2020-08-11 16:07:29.731295"], ["updated_at", "2020-08-11 16:07:29.731295"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Insert Batteries into Flashlight"], ["created_at", "2020-08-11 16:07:29.735513"], ["updated_at", "2020-08-11 16:07:29.735513"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Insert Batteries into Flashlight"], ["created_at", "2020-08-11 16:07:29.739678"], ["updated_at", "2020-08-11 16:07:29.739678"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Match Locks & Keys"], ["created_at", "2020-08-11 16:07:29.743966"], ["updated_at", "2020-08-11 16:07:29.743966"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Threading & Unthreading Nuts on Bolts"], ["created_at", "2020-08-11 16:07:29.748067"], ["updated_at", "2020-08-11 16:07:29.748067"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Wooden Hammer & Pegs"], ["created_at", "2020-08-11 16:07:29.752397"], ["updated_at", "2020-08-11 16:07:29.752397"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Feed and Care for an Animal"], ["created_at", "2020-08-11 16:07:29.756689"], ["updated_at", "2020-08-11 16:07:29.756689"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Dial 9-1-1 Instructions"], ["created_at", "2020-08-11 16:07:29.760836"], ["updated_at", "2020-08-11 16:07:29.760836"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Learning Home Address & Phone"], ["created_at", "2020-08-11 16:07:29.765038"], ["updated_at", "2020-08-11 16:07:29.765038"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Number (3 y/o)"], ["created_at", "2020-08-11 16:07:29.769196"], ["updated_at", "2020-08-11 16:07:29.769196"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Hammering Nails (4 y/o)"], ["created_at", "2020-08-11 16:07:29.773511"], ["updated_at", "2020-08-11 16:07:29.773511"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Wrap a Present (4 y/o)"], ["created_at", "2020-08-11 16:07:29.777849"], ["updated_at", "2020-08-11 16:07:29.777849"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Pack an Overnight Bag (4 y/o)"], ["created_at", "2020-08-11 16:07:29.782323"], ["updated_at", "2020-08-11 16:07:29.782323"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("category", "abbreviation", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category", "Life Skills"], ["abbreviation", "life"], ["description", "Show & Tell(Public Speaking)"], ["created_at", "2020-08-11 16:07:29.788439"], ["updated_at", "2020-08-11 16:07:29.788439"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Create (0.7ms)[0m  [1m[32mINSERT INTO "admins" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jennifer"], ["last_name", "Higdon"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.804701"], ["updated_at", "2020-08-11 16:07:29.804701"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Create (0.3ms)[0m  [1m[32mINSERT INTO "admins" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Clara"], ["last_name", "Schumann"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.809683"], ["updated_at", "2020-08-11 16:07:29.809683"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.6ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Magnolia"], ["last_name", "Smith"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.847388"], ["updated_at", "2020-08-11 16:07:29.847388"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.4ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ming"], ["last_name", "Lee"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.852304"], ["updated_at", "2020-08-11 16:07:29.852304"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.3ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jackie"], ["last_name", "Tennant"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.856631"], ["updated_at", "2020-08-11 16:07:29.856631"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.3ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Aurelia"], ["last_name", "Vance"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.861046"], ["updated_at", "2020-08-11 16:07:29.861046"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.3ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Sam"], ["last_name", "Willenbotham"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.865590"], ["updated_at", "2020-08-11 16:07:29.865590"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.4ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Blake"], ["last_name", "Jackson"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.870048"], ["updated_at", "2020-08-11 16:07:29.870048"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.3ms)[0m  [1m[32mINSERT INTO "teachers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Antonio"], ["last_name", "Boyette"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.874513"], ["updated_at", "2020-08-11 16:07:29.874513"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.6ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Magnolia"], ["last_name", "Smith"], ["pronouns", "She/Her"], ["birthday", "2018-05-03"], ["created_at", "2020-08-11 16:07:29.889972"], ["updated_at", "2020-08-11 16:07:29.889972"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Harold"], ["last_name", "Jones"], ["pronouns", "He/Him"], ["birthday", "2019-06-04"], ["created_at", "2020-08-11 16:07:29.894863"], ["updated_at", "2020-08-11 16:07:29.894863"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Angela"], ["last_name", "Scalia"], ["pronouns", "She/Her"], ["birthday", "2018-07-02"], ["created_at", "2020-08-11 16:07:29.899398"], ["updated_at", "2020-08-11 16:07:29.899398"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Smith"], ["last_name", "Paule"], ["pronouns", "He/Him"], ["birthday", "2018-05-23"], ["created_at", "2020-08-11 16:07:29.903810"], ["updated_at", "2020-08-11 16:07:29.903810"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Austin"], ["last_name", "Jackson"], ["pronouns", "He/Him"], ["birthday", "2018-05-14"], ["created_at", "2020-08-11 16:07:29.908450"], ["updated_at", "2020-08-11 16:07:29.908450"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ellis"], ["last_name", "Hargrove"], ["pronouns", "She/Her"], ["birthday", "2018-06-23"], ["created_at", "2020-08-11 16:07:29.913005"], ["updated_at", "2020-08-11 16:07:29.913005"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Hank"], ["last_name", "Marsalis"], ["pronouns", "He/Him"], ["birthday", "2018-08-23"], ["created_at", "2020-08-11 16:07:29.919752"], ["updated_at", "2020-08-11 16:07:29.919752"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Mahalia"], ["last_name", "Coltrane"], ["pronouns", "She/Her"], ["birthday", "2018-09-01"], ["created_at", "2020-08-11 16:07:29.924033"], ["updated_at", "2020-08-11 16:07:29.924033"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Juanita"], ["last_name", "Baker"], ["pronouns", "She/Her"], ["birthday", "2018-05-06"], ["created_at", "2020-08-11 16:07:29.928404"], ["updated_at", "2020-08-11 16:07:29.928404"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Chester"], ["last_name", "Arthur"], ["pronouns", "He/Him"], ["birthday", "2018-03-11"], ["created_at", "2020-08-11 16:07:29.932781"], ["updated_at", "2020-08-11 16:07:29.932781"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Baxter"], ["last_name", "Backsun"], ["pronouns", "He/Him"], ["birthday", "2018-02-03"], ["created_at", "2020-08-11 16:07:29.937069"], ["updated_at", "2020-08-11 16:07:29.937069"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Antoine"], ["last_name", "Arborio"], ["pronouns", "He/Him"], ["birthday", "2018-01-29"], ["created_at", "2020-08-11 16:07:29.941530"], ["updated_at", "2020-08-11 16:07:29.941530"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Fred"], ["last_name", "McGoo"], ["pronouns", "He/Him"], ["birthday", "2017-12-22"], ["created_at", "2020-08-11 16:07:29.945568"], ["updated_at", "2020-08-11 16:07:29.945568"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Milton"], ["last_name", "Caboodle"], ["pronouns", "He/Him"], ["birthday", "2017-11-30"], ["created_at", "2020-08-11 16:07:29.949845"], ["updated_at", "2020-08-11 16:07:29.949845"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("first_name", "last_name", "pronouns", "birthday", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Oswald"], ["last_name", "Flibbons"], ["pronouns", "He/Him"], ["birthday", "2018-05-05"], ["created_at", "2020-08-11 16:07:29.954206"], ["updated_at", "2020-08-11 16:07:29.954206"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.6ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Latoya"], ["last_name", "Smith"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.969999"], ["updated_at", "2020-08-11 16:07:29.969999"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Reginald"], ["last_name", "Jones"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.974825"], ["updated_at", "2020-08-11 16:07:29.974825"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.4ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Franklin"], ["last_name", "Scalia"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.979356"], ["updated_at", "2020-08-11 16:07:29.979356"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jane"], ["last_name", "Paule"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.984136"], ["updated_at", "2020-08-11 16:07:29.984136"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kim"], ["last_name", "Jackson"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.988272"], ["updated_at", "2020-08-11 16:07:29.988272"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Patrick"], ["last_name", "Hargrove"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:29.992429"], ["updated_at", "2020-08-11 16:07:29.992429"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.4ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kevin"], ["last_name", "Marsalis"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:29.997029"], ["updated_at", "2020-08-11 16:07:29.997029"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.4ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kevin"], ["last_name", "Coltrane"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:30.001741"], ["updated_at", "2020-08-11 16:07:30.001741"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.4ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Juan"], ["last_name", "Baker"], ["pronouns", "She/Her"], ["salutation", "Ms."], ["created_at", "2020-08-11 16:07:30.008723"], ["updated_at", "2020-08-11 16:07:30.008723"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Reginald"], ["last_name", "Arthur"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:30.013299"], ["updated_at", "2020-08-11 16:07:30.013299"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Bubba"], ["last_name", "Backsun"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:30.017491"], ["updated_at", "2020-08-11 16:07:30.017491"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Tony"], ["last_name", "Arborio"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:30.021496"], ["updated_at", "2020-08-11 16:07:30.021496"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.4ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Lester"], ["last_name", "McGoo"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:30.025636"], ["updated_at", "2020-08-11 16:07:30.025636"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Adriadne"], ["last_name", "Caboodle"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:30.029986"], ["updated_at", "2020-08-11 16:07:30.029986"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCaregiver Create (0.3ms)[0m  [1m[32mINSERT INTO "caregivers" ("first_name", "last_name", "pronouns", "salutation", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Narcissus"], ["last_name", "Flibbons"], ["pronouns", "He/Him"], ["salutation", "Mr."], ["created_at", "2020-08-11 16:07:30.034097"], ["updated_at", "2020-08-11 16:07:30.034097"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/caregivers" for ::1 at 2020-08-11 11:07:35 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CaregiversController#index as HTML
+  [1m[36mCaregiver Load (0.8ms)[0m  [1m[34mSELECT "caregivers".* FROM "caregivers"[0m
+  ↳ app/controllers/caregivers_controller.rb:8:in `index'
+Completed 200 OK in 45ms (Views: 12.9ms | ActiveRecord: 8.7ms | Allocations: 7385)
+
+
+Started GET "/children" for ::1 at 2020-08-11 11:07:45 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.7ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 37ms (Views: 12.9ms | ActiveRecord: 6.0ms | Allocations: 6872)
+
+
+Started GET "/teachers" for ::1 at 2020-08-11 13:25:11 -0500
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (1.4ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  ↳ app/controllers/teachers_controller.rb:8:in `index'
+Completed 200 OK in 59ms (Views: 26.3ms | ActiveRecord: 15.0ms | Allocations: 5756)
+
+

@@ -147,19 +147,19 @@ Child.create([
 ])
 
 Caregiver.create([
-    {first_name: 'Latoya', last_name: 'Smith', pronouns: 'She/Her' },
-    {first_name: 'Reginald', last_name: 'Jones', pronouns: 'He/Him' },
-    {first_name: 'Franklin', last_name: 'Scalia', pronouns: 'She/Her' },
-    {first_name: 'Jane', last_name: 'Paule', pronouns: 'He/Him' },
-    {first_name: 'Kim', last_name: 'Jackson', pronouns: 'He/Him' },
-    {first_name: 'Patrick', last_name: 'Hargrove', pronouns: 'She/Her' },
-    {first_name: 'Kevin', last_name: 'Marsalis', pronouns: 'He/Him' },
-    {first_name: 'Kevin', last_name: 'Coltrane', pronouns: 'She/Her' },
-    {first_name: 'Juan', last_name: 'Baker', pronouns: 'She/Her' },
-    {first_name: 'Reginald', last_name: 'Arthur', pronouns: 'He/Him' },
-    {first_name: 'Bubba', last_name: 'Backsun', pronouns: 'He/Him' },
-    {first_name: 'Tony', last_name: 'Arborio', pronouns: 'He/Him' },
-    {first_name: 'Lester', last_name: 'McGoo', pronouns: 'He/Him' },
-    {first_name: 'Adriadne', last_name: 'Caboodle', pronouns: 'He/Him' },
-    {first_name: 'Narcissus', last_name: 'Flibbons', pronouns: 'He/Him' }
+    {first_name: 'Latoya', last_name: 'Smith', pronouns: 'She/Her', salutation: 'Ms.' },
+    {first_name: 'Reginald', last_name: 'Jones', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Franklin', last_name: 'Scalia', pronouns: 'She/Her', salutation: 'Ms.' },
+    {first_name: 'Jane', last_name: 'Paule', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Kim', last_name: 'Jackson', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Patrick', last_name: 'Hargrove', pronouns: 'She/Her', salutation: 'Ms.' },
+    {first_name: 'Kevin', last_name: 'Marsalis', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Kevin', last_name: 'Coltrane', pronouns: 'She/Her', salutation: 'Ms.' },
+    {first_name: 'Juan', last_name: 'Baker', pronouns: 'She/Her', salutation: 'Ms.' },
+    {first_name: 'Reginald', last_name: 'Arthur', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Bubba', last_name: 'Backsun', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Tony', last_name: 'Arborio', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Lester', last_name: 'McGoo', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Adriadne', last_name: 'Caboodle', pronouns: 'He/Him' , salutation: 'Mr.'},
+    {first_name: 'Narcissus', last_name: 'Flibbons', pronouns: 'He/Him' , salutation: 'Mr.'}
 ])
