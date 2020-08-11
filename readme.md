@@ -192,3 +192,6 @@ const skills = [
 ];
 
 ```
+
+Thanks and looking forward!
+-James
