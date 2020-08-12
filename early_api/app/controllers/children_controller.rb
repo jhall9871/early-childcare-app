@@ -5,12 +5,12 @@ class ChildrenController < ApplicationController
   def index
     @children = Child.all
 
-    render json: @children
+    render json: @children.to_json(include: [:teachers, :caregivers])
   end
 
   # GET /children/1
   def show
-    render json: @child
+    render json: @child.to_json(include: [:teachers, :caregivers, :abilities, :skills])
   end
 
   # POST /children

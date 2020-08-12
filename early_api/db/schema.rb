@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_011110) do
+ActiveRecord::Schema.define(version: 2020_08_11_204348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.bigint "child_id", null: false
+    t.bigint "skill_id", null: false
+    t.boolean "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_abilities_on_child_id"
+    t.index ["skill_id"], name: "index_abilities_on_skill_id"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "first_name"
@@ -42,6 +52,25 @@ ActiveRecord::Schema.define(version: 2020_08_11_011110) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "classrooms", force: :cascade do |t|
+    t.bigint "child_id", null: false
+    t.bigint "teacher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_classrooms_on_child_id"
+    t.index ["teacher_id"], name: "index_classrooms_on_teacher_id"
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.bigint "caregiver_id", null: false
+    t.bigint "child_id", null: false
+    t.string "relationship"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["caregiver_id"], name: "index_families_on_caregiver_id"
+    t.index ["child_id"], name: "index_families_on_child_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "category"
     t.string "abbreviation"
@@ -59,4 +88,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_011110) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "abilities", "children"
+  add_foreign_key "abilities", "skills"
+  add_foreign_key "classrooms", "children"
+  add_foreign_key "classrooms", "teachers"
+  add_foreign_key "families", "caregivers"
+  add_foreign_key "families", "children"
 end

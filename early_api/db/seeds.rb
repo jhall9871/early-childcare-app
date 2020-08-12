@@ -129,7 +129,7 @@ Teacher.create([
 ])
 
 Child.create([
-    {first_name: 'Magnolia', last_name: 'Smith', pronouns: 'She/Her', birthday: '2018-05-03' },
+    {first_name: 'Harrison', last_name: 'Smith', pronouns: 'She/Her', birthday: '2018-05-03' },
     {first_name: 'Harold', last_name: 'Jones', pronouns: 'He/Him', birthday: '2019-06-04' },
     {first_name: 'Angela', last_name: 'Scalia', pronouns: 'She/Her', birthday: '2018-07-02' },
     {first_name: 'Smith', last_name: 'Paule', pronouns: 'He/Him', birthday: '2018-05-23' },
@@ -162,4 +162,93 @@ Caregiver.create([
     {first_name: 'Lester', last_name: 'McGoo', pronouns: 'He/Him' , salutation: 'Mr.'},
     {first_name: 'Adriadne', last_name: 'Caboodle', pronouns: 'He/Him' , salutation: 'Mr.'},
     {first_name: 'Narcissus', last_name: 'Flibbons', pronouns: 'He/Him' , salutation: 'Mr.'}
+])
+
+Teacher.find(1).classrooms.create([
+    {child_id: 1},
+    {child_id: 2},
+    {child_id: 3},
+    {child_id: 4},
+    {child_id: 5},
+    {child_id: 6},
+    {child_id: 7},
+    {child_id: 8},
+])
+
+Teacher.find(2).classrooms.create([
+    {child_id: 9},
+    {child_id: 10},
+    {child_id: 11},
+    {child_id: 12},
+    {child_id: 13},
+    {child_id: 14},
+    {child_id: 15},
+])
+
+# There are 104 skills and 15 children to assign them to!
+1.upto(15) do |i| 
+    1.upto(104) do |j|
+        random_boolean = [true, false].sample
+        Ability.create({child_id: i, skill_id: j, status: random_boolean})
+    end
+end
+
+Caregiver.find(1).families.create([
+    {child_id: 1, relationship: 'mother'}
+])
+
+Caregiver.find(2).families.create([
+    {child_id: 2, relationship: 'father'}
+])
+
+Caregiver.find(3).families.create([
+    {child_id: 3, relationship: 'mother'}
+])
+
+Caregiver.find(4).families.create([
+    {child_id: 4, relationship: 'father'}
+])
+
+Caregiver.find(5).families.create([
+    {child_id: 5, relationship: 'father'}
+])
+
+Caregiver.find(6).families.create([
+    {child_id: 6, relationship: 'mother'}
+])
+
+Caregiver.find(7).families.create([
+    {child_id: 7, relationship: 'father'}
+])
+
+Caregiver.find(8).families.create([
+    {child_id: 8, relationship: 'mother'}
+])
+
+Caregiver.find(9).families.create([
+    {child_id: 9, relationship: 'mother'}
+])
+
+Caregiver.find(10).families.create([
+    {child_id: 10, relationship: 'father'}
+])
+
+Caregiver.find(11).families.create([
+    {child_id: 11, relationship: 'father'}
+])
+
+Caregiver.find(12).families.create([
+    {child_id: 12, relationship: 'father'}
+])
+
+Caregiver.find(13).families.create([
+    {child_id: 13, relationship: 'father'}
+])
+
+Caregiver.find(14).families.create([
+    {child_id: 14, relationship: 'father'}
+])
+
+Caregiver.find(15).families.create([
+    {child_id: 15, relationship: 'father'}
 ])

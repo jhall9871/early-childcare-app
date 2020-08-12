@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :abilities
+  resources :families
+  resources :classrooms
   resources :skills
   resources :admins
   resources :teachers

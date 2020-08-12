@@ -1,3 +1,5 @@
+/*========Global styles=========*/
+
 .App {
   text-align: center;
   margin-top: 70px;
@@ -5,7 +7,15 @@
 
 a {
   text-decoration: none;
+  color: black;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/*=============Nav==============*/
 
 nav {
   position: fixed;
@@ -18,9 +28,39 @@ nav {
 nav ul {
   display: flex;
   justify-content: space-around;
-  list-style: none;
   text-decoration: none;
 }
+
+/*==============================*/
+
+.student-map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.child-tile {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-row {
+  background: #eee;
+  border: 1px solid black;
+  margin: 5px 5px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+/*===========Footer=============*/
 
 #footer {
   position: fixed;

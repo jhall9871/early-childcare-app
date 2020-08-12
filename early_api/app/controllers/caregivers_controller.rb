@@ -5,12 +5,12 @@ class CaregiversController < ApplicationController
   def index
     @caregivers = Caregiver.all
 
-    render json: @caregivers
+    render json: @caregivers.to_json(include: :children)
   end
 
   # GET /caregivers/1
   def show
-    render json: @caregiver
+    render json: @caregiver.to_json(include: :children)
   end
 
   # POST /caregivers

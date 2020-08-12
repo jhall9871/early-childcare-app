@@ -5,12 +5,12 @@ class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
 
-    render json: @teachers
+    render json: @teachers.to_json(include: :children)
   end
 
   # GET /teachers/1
   def show
-    render json: @teacher
+    render json: @teacher.to_json(include: :children)
   end
 
   # POST /teachers
