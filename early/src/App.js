@@ -11,7 +11,6 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState("admin");
-
   return (
     <div className="App">
       <Nav />

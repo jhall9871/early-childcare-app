@@ -10,7 +10,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities/1
   def show
-    render json: @ability.to_json(include: skills)
+    render json: @ability
   end
 
   # POST /abilities
@@ -25,8 +25,10 @@ class AbilitiesController < ApplicationController
   end
 
   # PATCH/PUT /abilities/1
+  # This has been modified to find by child id and skill id, then update status
   def update
-    if @ability.update(ability_params)
+    @ability = Ability.where(child_id: params[:child_id], skill_id: params[:skill_id])
+    if @ability.update(status: params[:status])
       render json: @ability
     else
       render json: @ability.errors, status: :unprocessable_entity
