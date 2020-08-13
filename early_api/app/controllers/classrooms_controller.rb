@@ -14,7 +14,11 @@ class ClassroomsController < ApplicationController
   end
 
   # POST /classrooms
+  # also, destroy all child's other classrooms when you create a new connection.
   def create
+
+    Classroom.where(child_id: params[:child_id]).destroy_all
+
     @classroom = Classroom.new(classroom_params)
 
     if @classroom.save
@@ -46,6 +50,6 @@ class ClassroomsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def classroom_params
-      params.require(:classroom).permit(:child_id, :teacher_id)
+      params.permit(:child_id, :teacher_id)
     end
 end

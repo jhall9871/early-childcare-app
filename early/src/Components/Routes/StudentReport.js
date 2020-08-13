@@ -4,9 +4,8 @@ import axios from "axios";
 const StudentReport = (props) => {
   const id = props.match.params.childid;
   const [student, setStudent] = useState({});
-  const [skillsList, setSkillsList] = useState([]);
 
-  //get all student info
+  //helper function (api call)
   const makeAPICall = async () => {
     try {
       const response = await axios({
@@ -18,13 +17,13 @@ const StudentReport = (props) => {
       console.error(err);
     }
   };
-  
+
+  //load student info on component mount
   useEffect(() => {
     makeAPICall();
   }, []);
 
-  
-  //helper function
+  //helper function for ordered lists
   const compare = (a, b) => {
     let comparison = 0;
     if (a.id > b.id) {
@@ -51,14 +50,6 @@ const StudentReport = (props) => {
   const handleSkillClick = async (e) => {
     let skillId = e.target.value;
     let newStatus = !student.abilities[skillId - 1].status;
-    console.log(
-      "changing student " +
-        student.first_name +
-        " skill " +
-        student.skills[skillId - 1].description +
-        " to " +
-        newStatus
-    );
     try {
       await axios({
         url: `http://localhost:3000/abilities/1?child_id=${student.id}&skill_id=${skillId}&status=${newStatus}`,
@@ -73,7 +64,6 @@ const StudentReport = (props) => {
   return (
     <div>
       <h2>Student Report</h2>
-
       <p>
         {student.first_name} {student.last_name}
       </p>

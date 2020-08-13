@@ -34,7 +34,11 @@ class ChildrenController < ApplicationController
   end
 
   # DELETE /children/1
+  # This has been modified to find associated abilities and delete them first
   def destroy
+    Ability.where(child_id: params[:id]).destroy_all
+    Classroom.where(child_id: params[:id]).destroy_all
+    Family.where(child_id: params[:id]).destroy_all
     @child.destroy
   end
 

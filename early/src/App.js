@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Nav from "./Components/Shared/Nav";
 import Footer from "./Components/Shared/Footer";
@@ -10,7 +10,7 @@ import StudentReport from "./Components/Routes/StudentReport";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState("admin");
+  // const [user, setUser] = useState("admin");
   return (
     <div className="App">
       <Nav />
