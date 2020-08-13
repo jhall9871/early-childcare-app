@@ -15,28 +15,47 @@ const SkillsTile = ({
     const incomplete = abilities.filter(item => item.status === false).length
 
 
-  if (skills.length > 0) {
-    return (
-      <div>
-        <h3>{skills[0].category}</h3>
-        <ul>
-          {skills.map((skill, index) => (
-            <li key={skill.id}>
-              {skill.description}
-              <button
-                value={skill.id}
-                onClick={
-                  user === "teacher" ? handleSkillClick : handleInvalidClick
-                }
-              >
-                {abilities[index] ? abilities[index].status.toString() : ""}
-              </button>
-            </li>
-          ))}
-            </ul>
-            <SkillProgressChart complete={complete} incomplete={incomplete}/>
-      </div>
-    );
+    if (skills.length > 0) {
+        if (user === "teacher") {
+            return (
+                <div>
+                    <h3>{skills[0].category}</h3>
+                    <ul>
+                        {skills.map((skill, index) => (
+                            <li key={skill.id}>
+                                {skill.description}
+                                <button
+                                    value={skill.id}
+                                    onClick={
+                                        user === "teacher" ? handleSkillClick : handleInvalidClick
+                                    }
+                                >
+                                    {abilities[index].status === true ? "X" : "O"}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                    <SkillProgressChart complete={complete} incomplete={incomplete} />
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h3>{skills[0].category}</h3>
+                    <ul>
+                        {skills.map((skill, index) => (
+                            <li key={skill.id}>
+                                {skill.description}
+                                
+                                    {abilities[index].status === true ? "X" : "O"}
+                                
+                            </li>
+                        ))}
+                    </ul>
+                    <SkillProgressChart complete={complete} incomplete={incomplete} />
+                </div>
+            );
+        }
   } else return "Waiting for data";
 };
 
