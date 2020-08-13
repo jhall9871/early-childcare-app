@@ -65,6 +65,8 @@ GEM
     crass (1.0.6)
     erubi (1.9.0)
     ffi (1.13.1)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.5)
@@ -153,6 +155,7 @@ DEPENDENCIES
   awesome_print
   bootsnap (>= 1.4.2)
   byebug
+  friendly_id (~> 5.2.4)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

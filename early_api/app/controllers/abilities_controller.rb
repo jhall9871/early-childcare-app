@@ -25,9 +25,7 @@ class AbilitiesController < ApplicationController
   end
 
   # PATCH/PUT /abilities/1
-  # This has been modified to find by child id and skill id, then update status
   def update
-    @ability = Ability.where(child_id: params[:child_id], skill_id: params[:skill_id])
     if @ability.update(status: params[:status])
       render json: @ability
     else

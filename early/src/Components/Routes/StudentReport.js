@@ -49,10 +49,11 @@ const StudentReport = (props) => {
   //toggle skill click
   const handleSkillClick = async (e) => {
     let skillId = e.target.value;
+    let abilityId = orderedAbilitiesList[skillId - 1].id;
     let newStatus = !student.abilities[skillId - 1].status;
     try {
       await axios({
-        url: `http://localhost:3000/abilities/1?child_id=${student.id}&skill_id=${skillId}&status=${newStatus}`,
+        url: `http://localhost:3000/abilities/${abilityId}?status=${newStatus}`,
         method: "PUT",
       });
     } catch (err) {
@@ -71,7 +72,7 @@ const StudentReport = (props) => {
       <ul>
         {orderedSkillsList
           ? orderedSkillsList.map((skill) => (
-              <li>
+              <li key={skill.id}> 
                 {skill.description}{" "}
                 <button value={skill.id} onClick={handleSkillClick}>
                   {orderedAbilitiesList[skill.id - 1].status === true ? "X" : "O"}

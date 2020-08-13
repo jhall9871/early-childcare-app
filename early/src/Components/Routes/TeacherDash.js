@@ -11,7 +11,7 @@ const TeacherDash = () => {
     const makeAPICall = async () => {
       try {
         const response = await axios({
-          url: `http://localhost:3000/teachers/2`,
+          url: `http://localhost:3000/teachers/1`,
           method: "GET",
         });
         setStudents(response.data.children);

@@ -112,7 +112,7 @@ const AdminDash = () => {
         console.error(err)
       }
     }
-    teacherAssignAPICall();
+    await teacherAssignAPICall();
     makeAPICall();
   };
 
@@ -125,8 +125,8 @@ const AdminDash = () => {
             <li key={student.id} className="admin-row">
               Name: {student.first_name} {student.last_name} | Birthday:{" "}
               {student.birthday} |
-              Caregiver: {student.caregivers ? student.caregivers[0].first_name : ""} | 
-              Teacher: {student.teachers ? student.teachers[0].last_name : ""}
+              Caregiver: {student.caregivers.length > 0 ? student.caregivers[0].first_name : ""} | 
+              Teacher: {student.teachers.length > 0 ? student.teachers[0].last_name : ""}
               
               <form onSubmit={handleAssignment}>
                 <label>Assign a new teacher:</label>
