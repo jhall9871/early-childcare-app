@@ -22,6 +22,15 @@ class ChildrenController < ApplicationController
     else
       render json: @child.errors, status: :unprocessable_entity
     end
+  
+    #also create an abilities join table, all false
+    newId = @child.id
+
+    1.upto(104) do |j|
+      random_boolean = [true, false].sample
+      Ability.create({child_id: newId, skill_id: j, status: false})
+    end
+
   end
 
   # PATCH/PUT /children/1
