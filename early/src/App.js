@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Route, Switch } from "react-router-dom";
 import Nav from "./Components/Shared/Nav";
 import Footer from "./Components/Shared/Footer";
@@ -9,8 +9,10 @@ import CareGiverDash from "./Components/Routes/CareGiverDash";
 import StudentReport from "./Components/Routes/StudentReport";
 import "./App.css";
 
+export const DataContext = createContext();
+
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState("");
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -18,10 +20,7 @@ function App() {
   };
 
   const handleLogInChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
+    setUser(e.target.value);
   }
 
   console.log(user);
@@ -30,6 +29,7 @@ function App() {
     <div className="App">
       <Nav />
       <Switch>
+        <DataContext.Provider value={{ user }}>
         <Route
           exact
           path="/"
@@ -42,7 +42,8 @@ function App() {
           exact
           path="/childreport/:childid"
           render={(routerProps) => <StudentReport {...routerProps} />}
-        />
+          />
+          </DataContext.Provider>
       </Switch>
       <Footer />
     </div>

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { DataContext } from "../../App";
 import axios from "axios";
 
 const StudentReport = (props) => {
+  const { user } = useContext(DataContext)
+  console.log('user', user)
   const id = props.match.params.childid;
   const [student, setStudent] = useState({});
 
@@ -62,6 +65,11 @@ const StudentReport = (props) => {
     makeAPICall();
   };
 
+  //click function for non-teachers
+  const handleInvalidClick = () => {
+    alert("only teachers can do that.")
+  }
+
   return (
     <div>
       <h2>Student Report</h2>
@@ -74,7 +82,7 @@ const StudentReport = (props) => {
           ? orderedSkillsList.map((skill) => (
               <li key={skill.id}> 
                 {skill.description}{" "}
-                <button value={skill.id} onClick={handleSkillClick}>
+                <button value={skill.id} onClick={user === "teacher" ? handleSkillClick : handleInvalidClick}>
                   {orderedAbilitiesList[skill.id - 1].status === true ? "X" : "O"}
                 </button>
               </li>
