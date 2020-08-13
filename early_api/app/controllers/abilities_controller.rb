@@ -10,7 +10,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities/1
   def show
-    render json: @ability
+    render json: @ability.to_json(include: [:child, :skill])
   end
 
   # POST /abilities
