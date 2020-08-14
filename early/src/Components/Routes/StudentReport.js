@@ -5,7 +5,6 @@ import axios from "axios";
 
 const StudentReport = (props) => {
   const { user } = useContext(DataContext);
-
   const id = props.match.params.childid;
   const [student, setStudent] = useState({});
 
@@ -85,11 +84,9 @@ const StudentReport = (props) => {
 
   //toggle skill click
   const handleSkillClick = async (e) => {
-    console.log("handleskillclick")
     let skillId = e.target.value;
     let abilityId = orderedAbilitiesList[skillId - 1].id;
     let newStatus = !student.abilities[skillId - 1].status;
-    console.log(`http://localhost:3000/abilities/${abilityId}?status=${newStatus}`)
     try {
       await axios({
         url: `http://localhost:3000/abilities/${abilityId}?status=${newStatus}`,
@@ -107,12 +104,15 @@ const StudentReport = (props) => {
   };
 
   return (
-    <div>
-      <h2>Student Report</h2>
-      <p>
-        {student.first_name} {student.last_name}
-      </p>
-      <p>{student.birthday}</p>
+    <div className="student-report">
+      <div className="photo-card"></div>
+      <div className="student-title-row"><h2>Student Report</h2></div>
+      <div className="student-info-row">
+        <h3>{student.first_name} {student.last_name}</h3>
+        <h4>{student.pronouns}</h4>
+        <h4>{student.birthday}</h4>
+      </div>
+      
       <div className="skills-tile-wrapper">
         <SkillsTile skills={grossmotorskills} abilities={grossmotorabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
         <SkillsTile skills={kitchenskills} abilities={kitchenabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
@@ -123,25 +123,6 @@ const StudentReport = (props) => {
         <SkillsTile skills={artskills} abilities={artabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
         <SkillsTile skills={lifeskills} abilities={lifeabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
       </div>
-      {/* <ul>
-        {orderedSkillsList
-          ? orderedSkillsList.map((skill) => (
-              <li key={skill.id}>
-                {skill.description}{" "}
-                <button
-                  value={skill.id}
-                  onClick={
-                    user === "teacher" ? handleSkillClick : handleInvalidClick
-                  }
-                >
-                  {orderedAbilitiesList[skill.id - 1].status === true
-                    ? "X"
-                    : "O"}
-                </button>
-              </li>
-            ))
-          : ""}
-      </ul> */}
     </div>
   );
 };

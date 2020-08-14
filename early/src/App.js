@@ -1,5 +1,7 @@
 import React, { useState, createContext } from "react";
 import { Route, Switch } from "react-router-dom";
+import { faChalkboardTeacher, faUserFriends, faIdBadge } from '@fortawesome/free-solid-svg-icons'
+
 import Nav from "./Components/Shared/Nav";
 import Footer from "./Components/Shared/Footer";
 import Home from "./Components/Routes/Home";
@@ -8,6 +10,7 @@ import TeacherDash from "./Components/Routes/TeacherDash";
 import CareGiverDash from "./Components/Routes/CareGiverDash";
 import StudentReport from "./Components/Routes/StudentReport";
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const DataContext = createContext();
 
@@ -23,11 +26,11 @@ function App() {
     setUser(e.target.value);
   }
 
-  console.log(user);
 
   return (
     <div className="App">
       <Nav />
+      <FontAwesomeIcon icon="id-badge" />
       <Switch>
         <DataContext.Provider value={{ user }}>
         <Route
@@ -45,7 +48,7 @@ function App() {
           />
           </DataContext.Provider>
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

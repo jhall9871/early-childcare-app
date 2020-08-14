@@ -1,13 +1,43 @@
 /*========Global styles=========*/
 
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+:root {
+  --indigo: #0D3B66;
+  --cream: #FAF0CA;
+  --yellow: #F4D35E;
+  --orange: #EE964B;
+  --red: #F95738;
+}
+
+/* font-family: 'Asap Condensed', sans-serif;
+font-family: 'Fredoka One', cursive;
+font-family: 'Pragati Narrow', sans-serif; */
+
+body {
+  margin: 0;
+}
+
 .App {
   text-align: center;
-  margin-top: 70px;
+  height: 100%;
+  font-family: 'Pragati Narrow', sans-serif;
+  padding-left: 70px;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+h1, h2, h3 {
+  font-family: 'Fredoka One', cursive;
 }
 
 ul {
@@ -19,16 +49,108 @@ ul {
 
 nav {
   position: fixed;
-  top: 0px;
-  width: 100vw;
-  height: 50px;
-  background: #eee;
+  left: 0px;
+  width: 70px;
+  height: 100vh;
+  font-size: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
 }
 
-nav ul {
+nav a {
+display: block;
+margin: 50px 0;
+color: var(--indigo);
+}
+
+/*============Student Report==========*/
+
+.student-report {
+  position: relative;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 30px;
+  background: var(--cream);
+}
+
+.photo-card {
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  background: var(--indigo);
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.student-title-row {
+  color: var(--red);
+  padding-left: 200px;
+  text-align: left;
+  font-weight: 200;
+}
+
+.student-info-row {
+  background: var(--indigo);
+  color: white;
+  text-align: left;
+  padding-left: 200px;
+  height: 110px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  text-decoration: none;
+}
+
+
+/*============Skills tile=============*/
+
+.skills-tile-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-top: 50px;
+}
+
+.skills-tile {
+  border-radius: 30px;
+  background: var(--yellow);
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: var(--indigo);
+}
+
+.skills-tile h3 {
+  color: var(--red);
+}
+
+.skills-chart {
+  
+}
+
+.skills-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.skills-list p {
+  line-height: 1rem;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.skills-tile button {
+  background: transparent;
+}
+
+.skills-tile svg {
+  pointer-events: none;
+  color: var(--indigo);
+  font-size: 1.3rem;
 }
 
 /*==============================*/

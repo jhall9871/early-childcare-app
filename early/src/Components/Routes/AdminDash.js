@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBirthdayCake, faChalkboardTeacher, faUserFriends } from '@fortawesome/free-solid-svg-icons'
 
 const AdminDash = () => {
   const [students, setStudents] = useState([]);
@@ -123,10 +125,10 @@ const AdminDash = () => {
         <ul>
           {orderedStudentsList.map((student) => (
             <li key={student.id} className="admin-row">
-              Name: {student.first_name} {student.last_name} | Birthday:{" "}
+              Name: {student.first_name} {student.last_name} | <FontAwesomeIcon icon={faBirthdayCake}/>{" "}
               {student.birthday} |
-              Caregiver: {student.caregivers.length > 0 ? student.caregivers[0].first_name : ""} | 
-              Teacher: {student.teachers.length > 0 ? student.teachers[0].last_name : ""}
+              <FontAwesomeIcon icon={faUserFriends} /> {student.caregivers.length > 0 ? student.caregivers[0].first_name : ""} | 
+              <FontAwesomeIcon icon={faChalkboardTeacher} /> {student.teachers.length > 0 ? student.teachers[0].last_name : ""}
               
               <form onSubmit={handleAssignment}>
                 <label>Assign a new teacher:</label>

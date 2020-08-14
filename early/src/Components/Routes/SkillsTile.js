@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../App";
 import SkillProgressChart from "./SkillProgressChart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckCircle,
+  faTimesCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const SkillsTile = ({
   skills,
@@ -19,37 +24,48 @@ const SkillsTile = ({
       return (
         <div className="skills-tile">
           <h3>{skills[0].category}</h3>
-          <ul>
+          <SkillProgressChart complete={complete} incomplete={incomplete} />
+          <div className="skills-list">
             {skills.map((skill, index) => (
-              <li key={skill.id}>
-                {skill.description}
+              <div key={skill.id} className="skills-row">
                 <button
                   value={skill.id}
                   onClick={
                     user === "teacher" ? handleSkillClick : handleInvalidClick
                   }
                 >
-                  {abilities[index].status === true ? "X" : "O"}
+                  {abilities[index].status === true ? (
+                    <FontAwesomeIcon icon={faCheckCircle} />
+                  ) : (
+                    <FontAwesomeIcon icon={faTimesCircle} />
+                  )}
                 </button>
-              </li>
+                
+                <p>{skill.description}</p>
+              </div>
             ))}
-          </ul>
-          <SkillProgressChart complete={complete} incomplete={incomplete} />
+          </div>
         </div>
       );
     } else {
       return (
         <div className="skills-tile">
           <h3>{skills[0].category}</h3>
-          <ul>
-            {skills.map((skill, index) => (
-              <li key={skill.id}>
-                {skill.description}{" "}
-                {abilities[index].status === true ? "X" : "O"}
-              </li>
-            ))}
-          </ul>
           <SkillProgressChart complete={complete} incomplete={incomplete} />
+
+          <div className="skills-list">
+            {skills.map((skill, index) => (
+              <div key={skill.id} className="skills-row">
+                {abilities[index].status === true ? (
+                  <FontAwesomeIcon icon={faCheckCircle} />
+                ) : (
+                  <FontAwesomeIcon icon={faTimesCircle} />
+                )}
+                
+                <p>{skill.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       );
     }

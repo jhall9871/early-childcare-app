@@ -3,11 +3,11 @@ import { Doughnut } from "react-chartjs-2";
 
 const SkillProgressChart = ({ complete, incomplete }) => {
   const data = {
-    labels: ["% Complete", "% Incomplete"],
+    labels: ["Complete", "Incomplete"],
     datasets: [
       {
         label: "My First dataset",
-        backgroundColor: ["rgba(0,0,0,0.2)", "rgba(255,199,132,0)"],
+        backgroundColor: ["#0D3B66", "#EE964B"],
         borderColor: ["rgba(0,0,0,1)", "rgba(0,0,0,0)"],
         borderWidth: 1,
         hoverBackgroundColor: "rgba(0,0,0,0.4)",
@@ -17,13 +17,20 @@ const SkillProgressChart = ({ complete, incomplete }) => {
     ],
   };
 
+  const options = {
+    legend: {
+      display: false
+    },
+    maintainAspectRatio: false
+  }
+
   return (
-    <div>
+    <div className="skills-chart">
       <Doughnut
         data={data}
-        width={300}
-        height={300}
-        options={{ maintainAspectRatio: false }}
+        width={100}
+        height={100}
+        options={options}
       />
     </div>
   );
