@@ -65,6 +65,59 @@ margin: 50px 0;
 color: var(--indigo);
 }
 
+/*===============Homepage==============*/
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--indigo);
+}
+
+#home h2 {
+  color: var(--red);
+  margin: 10px 0px;
+}
+
+.login-wrapper {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0px;
+}
+
+.login-wrapper h3 {
+  margin-bottom: 20px;
+}
+
+#home form {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#home label {
+  margin-right: 10px;
+}
+
+#home input {
+  border: 1px solid var(--indigo);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-family: 'Pragati Narrow', sans-serif;
+  margin: 5px 0px;
+  background: white;
+  color: #666;
+  padding: 0px 5px 0px 5px;
+}
+
 /*============Student Report==========*/
 
 .student-report {
@@ -83,24 +136,47 @@ color: var(--indigo);
   width: 200px;
   height: 200px;
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-card img {
+  height: 180px;
+  width: 180px;
+  border-radius: 10px;
 }
 
 .student-title-row {
   color: var(--red);
-  padding-left: 200px;
+  padding-left: 188px;
   text-align: left;
   font-weight: 200;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .student-info-row {
   background: var(--indigo);
   color: white;
   text-align: left;
-  padding-left: 200px;
-  height: 110px;
+  height: 70px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 20px 20px 20px 188px;
+}
+
+.student-info-row h3 {
+  font-size: 3rem;
+  margin-right: 20px;
+}
+
+.student-info-row h4 {
+  font-size: 2rem;
+  margin-right: 20px;
 }
 
 
@@ -124,10 +200,6 @@ color: var(--indigo);
 
 .skills-tile h3 {
   color: var(--red);
-}
-
-.skills-chart {
-  
 }
 
 .skills-row {

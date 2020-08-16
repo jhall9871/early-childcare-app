@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { DataContext } from "../../App";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
 
 const TeacherDash = () => {
   const [students, setStudents] = useState([]);
+  const { user, userType } = useContext(DataContext);
 
   // When component mounts, get all students and set in state.
   useEffect(() => {
     const makeAPICall = async () => {
       try {
         const response = await axios({
-          url: `http://localhost:3000/teachers/1`,
+          url: `http://localhost:3000/teachers/${user.id}`,
           method: "GET",
         });
         setStudents(response.data.children);
