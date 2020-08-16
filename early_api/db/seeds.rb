@@ -129,21 +129,21 @@ Teacher.create([
 ])
 
 Child.create([
-    {first_name: 'Harrison', last_name: 'Smith', pronouns: 'She/Her', birthday: '2018-05-03' },
-    {first_name: 'Harold', last_name: 'Jones', pronouns: 'He/Him', birthday: '2019-06-04' },
-    {first_name: 'Angela', last_name: 'Scalia', pronouns: 'She/Her', birthday: '2018-07-02' },
-    {first_name: 'Smith', last_name: 'Paule', pronouns: 'He/Him', birthday: '2018-05-23' },
-    {first_name: 'Austin', last_name: 'Jackson', pronouns: 'He/Him', birthday: '2018-05-14' },
-    {first_name: 'Ellis', last_name: 'Hargrove', pronouns: 'She/Her', birthday: '2018-06-23' },
-    {first_name: 'Hank', last_name: 'Marsalis', pronouns: 'He/Him', birthday: '2018-08-23' },
-    {first_name: 'Mahalia', last_name: 'Coltrane', pronouns: 'She/Her', birthday: '2018-09-01' },
-    {first_name: 'Juanita', last_name: 'Baker', pronouns: 'She/Her', birthday: '2018-05-06' },
-    {first_name: 'Chester', last_name: 'Arthur', pronouns: 'He/Him', birthday: '2018-03-11' },
-    {first_name: 'Baxter', last_name: 'Backsun', pronouns: 'He/Him', birthday: '2018-02-03' },
-    {first_name: 'Antoine', last_name: 'Arborio', pronouns: 'He/Him', birthday: '2018-01-29' },
-    {first_name: 'Fred', last_name: 'McGoo', pronouns: 'He/Him', birthday: '2017-12-22' },
-    {first_name: 'Milton', last_name: 'Caboodle', pronouns: 'He/Him', birthday: '2017-11-30' },
-    {first_name: 'Oswald', last_name: 'Flibbons', pronouns: 'He/Him', birthday: '2018-05-05' }
+    {first_name: 'Harrison', last_name: 'Smith', pronouns: 'She/Her', birthday: '2018-05-03', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-thgusstavo-santana-2098813_d0pvda.jpg" },
+    {first_name: 'Harold', last_name: 'Jones', pronouns: 'He/Him', birthday: '2019-06-04', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-thgusstavo-santana-2946421_ty6als.jpg"},
+    {first_name: 'Angela', last_name: 'Scalia', pronouns: 'She/Her', birthday: '2018-07-02', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-emma-bauso-2253892_isqefn.jpg"},
+    {first_name: 'Smith', last_name: 'Paule', pronouns: 'He/Him', birthday: '2018-05-23', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-taryn-elliott-3889821_fisfww.jpg"},
+    {first_name: 'Austin', last_name: 'Jackson', pronouns: 'He/Him', birthday: '2018-05-14', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-nappy-1068209_vfjjwh.jpg" },
+    {first_name: 'Ellis', last_name: 'Hargrove', pronouns: 'She/Her', birthday: '2018-06-23', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-pixabay-208134_rqw1o8.jpg" },
+    {first_name: 'Hank', last_name: 'Marsalis', pronouns: 'He/Him', birthday: '2018-08-23', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431142/Early%20App/pexels-kevin-fai-1378023_s6mruw.jpg" },
+    {first_name: 'Mahalia', last_name: 'Coltrane', pronouns: 'She/Her', birthday: '2018-09-01', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-thgusstavo-santana-1857068_w5nle1.jpg"},
+    {first_name: 'Juanita', last_name: 'Baker', pronouns: 'She/Her', birthday: '2018-05-06', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431142/Early%20App/pexels-daianne-gomes-1133721_y4hbvv.jpg" },
+    {first_name: 'Chester', last_name: 'Arthur', pronouns: 'He/Him', birthday: '2018-03-11', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431142/Early%20App/pexels-bess-hamiti-35537_kurqvo.jpg" },
+    {first_name: 'Baxter', last_name: 'Backsun', pronouns: 'He/Him', birthday: '2018-02-03', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431142/Early%20App/pexels-alexander-dummer-759736_vdxhmi.jpg" },
+    {first_name: 'Antoine', last_name: 'Arborio', pronouns: 'She/Her', birthday: '2018-01-29', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-ricardo-esquivel-1868480_izltkr.jpg"},
+    {first_name: 'Mindy', last_name: 'Lu', pronouns: 'He/Him', birthday: '2017-12-22', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431143/Early%20App/pexels-kha-ruxury-913179_firpve.jpg"},
+    {first_name: 'Sara', last_name: 'Caboodle', pronouns: 'She/Her', birthday: '2017-11-30', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431142/Early%20App/pexels-bruna-saito-1805843_mijnce.jpg"},
+    {first_name: 'Oswald', last_name: 'Flibbons', pronouns: 'He/Him', birthday: '2018-05-05', photo: "https://res.cloudinary.com/des92wft8/image/upload/v1597431142/Early%20App/pexels-ilkin-safterov-1697847_udqydk.jpg"}
 ])
 
 Caregiver.create([

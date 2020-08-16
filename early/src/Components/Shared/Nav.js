@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faTachometerAlt, faComments, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { DataContext } from "../../App";
 
 const Nav = () => {
     const [open, setOpen] = useState(true);
+    const { userType } = useContext(DataContext);
 
     return (
         <nav>
             
                 <Link to="/"><FontAwesomeIcon icon={faHome} /></Link>
-                <Link to="/admin"><FontAwesomeIcon icon={faComments} /></Link>
-                <Link to="/teacher"><FontAwesomeIcon icon={faTachometerAlt} /></Link>
-                <Link to="/caregiver"><FontAwesomeIcon icon={faSignOutAlt} /></Link>
+                <Link to="/messages"><FontAwesomeIcon icon={faComments} /></Link>
+                <Link to={`/${userType}`}><FontAwesomeIcon icon={faTachometerAlt} /></Link>
+                <Link to="/"><FontAwesomeIcon icon={faSignOutAlt} /></Link>
             
         </nav>
     );

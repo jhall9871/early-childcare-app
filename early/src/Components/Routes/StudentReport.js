@@ -4,7 +4,7 @@ import SkillsTile from "./SkillsTile";
 import axios from "axios";
 
 const StudentReport = (props) => {
-  const { user } = useContext(DataContext);
+  const { user, userType } = useContext(DataContext);
   const id = props.match.params.childid;
   const [student, setStudent] = useState({});
 
@@ -73,7 +73,7 @@ const StudentReport = (props) => {
   if (student.abilities) {
     orderedAbilitiesList = student.abilities.sort(compare);
     grossmotorabilities = orderedAbilitiesList.slice(0, 12);
-    kitchenabilities = orderedAbilitiesList.slice(13, 26)
+    kitchenabilities = orderedAbilitiesList.slice(13, 26);
     selfabilities = orderedAbilitiesList.slice(27, 41);
     envabilities = orderedAbilitiesList.slice(42, 53);
     mannersabilities = orderedAbilitiesList.slice(54, 66);
@@ -103,25 +103,83 @@ const StudentReport = (props) => {
     console.log("only teachers can do that.");
   };
 
+  //calculate student age (thank you, https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd)
+  const getAge = (dateString) => {
+    let today = new Date();
+    let birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   return (
     <div className="student-report">
-      <div className="photo-card"></div>
-      <div className="student-title-row"><h2>Student Report</h2></div>
-      <div className="student-info-row">
-        <h3>{student.first_name} {student.last_name}</h3>
-        <h4>{student.pronouns}</h4>
-        <h4>{student.birthday}</h4>
+      <div className="photo-card">
+        <img src={student.photo}></img>
       </div>
-      
+      <div className="student-title-row">
+        <h2>Student Report</h2>
+      </div>
+      <div className="student-info-row">
+        <h3>
+          {student.first_name} {student.last_name}
+        </h3>
+        <h4>{student.pronouns}</h4>
+        <h4>Age: {getAge(student.birthday)}</h4>
+      </div>
+
       <div className="skills-tile-wrapper">
-        <SkillsTile skills={grossmotorskills} abilities={grossmotorabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={kitchenskills} abilities={kitchenabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={selfskills} abilities={selfabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={envskills} abilities={envabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={mannersskills} abilities={mannersabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={fineskills} abilities={fineabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={artskills} abilities={artabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
-        <SkillsTile skills={lifeskills} abilities={lifeabilities} handleInvalidClick={handleInvalidClick} handleSkillClick={handleSkillClick}/>
+        <SkillsTile
+          skills={grossmotorskills}
+          abilities={grossmotorabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={kitchenskills}
+          abilities={kitchenabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={selfskills}
+          abilities={selfabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={envskills}
+          abilities={envabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={mannersskills}
+          abilities={mannersabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={fineskills}
+          abilities={fineabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={artskills}
+          abilities={artabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
+        <SkillsTile
+          skills={lifeskills}
+          abilities={lifeabilities}
+          handleInvalidClick={handleInvalidClick}
+          handleSkillClick={handleSkillClick}
+        />
       </div>
     </div>
   );

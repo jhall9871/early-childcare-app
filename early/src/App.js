@@ -1,54 +1,77 @@
 import React, { useState, createContext } from "react";
-import { Route, Switch } from "react-router-dom";
-import { faChalkboardTeacher, faUserFriends, faIdBadge } from '@fortawesome/free-solid-svg-icons'
+import { Route, Switch, Redirect } from "react-router-dom";
+import axios from "axios";
 
 import Nav from "./Components/Shared/Nav";
-import Footer from "./Components/Shared/Footer";
 import Home from "./Components/Routes/Home";
 import AdminDash from "./Components/Routes/AdminDash";
 import TeacherDash from "./Components/Routes/TeacherDash";
 import CareGiverDash from "./Components/Routes/CareGiverDash";
 import StudentReport from "./Components/Routes/StudentReport";
+import Messages from "./Components/Routes/Messages";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const DataContext = createContext();
 
 function App() {
-  const [user, setUser] = useState("");
+  const [input, setInput] = useState("");
+  const [user, setUser] = useState({});
+  const [userType, setUserType] = useState("");
 
-  const handleLogIn = (e) => {
+
+  const handleLogIn = async (e) => {
     e.preventDefault();
-    console.log("sign in", user);
+    const inputUserType = Object.keys(input)[0];
+    const userId = parseInt(Object.values(input)[0]);
+    setUserType(inputUserType);
+    try {
+      const response = await axios({
+        url: `http://localhost:3000/${inputUserType}s/${userId}`,
+        method: "GET",
+      });
+      setUser(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+
+    // return <Redirect to={`/${userType}`} />
+
   };
 
   const handleLogInChange = (e) => {
-    setUser(e.target.value);
-  }
-
+    setInput({
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="App">
-      <Nav />
-      <FontAwesomeIcon icon="id-badge" />
-      <Switch>
-        <DataContext.Provider value={{ user }}>
-        <Route
-          exact
-          path="/"
-          render={(routerProps) => <Home {...routerProps} handleLogIn={handleLogIn} handleLogInChange={handleLogInChange} />}
-        />
-        <Route exact path="/teacher" component={TeacherDash} />
-        <Route exact path="/caregiver" component={CareGiverDash} />
-        <Route exact path="/admin" component={AdminDash} />
-        <Route
-          exact
-          path="/childreport/:childid"
-          render={(routerProps) => <StudentReport {...routerProps} />}
+      <DataContext.Provider value={{ user, userType }}>
+        <Nav />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(routerProps) => (
+              <Home
+                {...routerProps}
+                handleLogIn={handleLogIn}
+                handleLogInChange={handleLogInChange}
+              />
+            )}
           />
-          </DataContext.Provider>
-      </Switch>
-      {/* <Footer /> */}
+          <Route exact path="/teacher" component={TeacherDash} />
+          <Route exact path="/caregiver" component={CareGiverDash} />
+          <Route exact path="/admin" component={AdminDash} />
+          <Route
+            exact
+            path="/childreport/:childid"
+            render={(routerProps) => <StudentReport {...routerProps} />}
+          />
+          <Route exact path="/messages" component={Messages} />
+        </Switch>
+      </DataContext.Provider>
     </div>
   );
 }
