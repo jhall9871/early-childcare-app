@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../App";
-import MessageThread from "./MessageThread";
 import axios from "axios";
 
 const Messages = () => {
@@ -13,12 +12,8 @@ const Messages = () => {
     teacher_id: user.id,
     author: userFullName,
   });
-    const [showBody, setShowBody] = useState(false);
 
-    console.log("messages", messages);
-    
-
-  //helper function (api call)
+  //Get messages (helper function)
   const makeAPICall = async () => {
     try {
       const response = await axios({

@@ -26,13 +26,17 @@ const TeacherDash = () => {
 
   return (
     <div className="dashboard" id="teacher-dash">
-      <h2>Teacher Dash</h2>
+      <h2>{user.first_name}'s Dashboard</h2>
       <h3>Your class:</h3>
       <div className="student-map">
         {students.map((student) => (
-            <Link key={student.id} to={`/childreport/${student.id}`}>
+          <Link key={student.id} to={`/childreport/${student.id}`}>
             <div className="child-tile">
-                    <h4>{student.first_name} {student.last_name}</h4>
+              <img src={student.photo} />
+              <div className="child-tile-overlay"></div>
+              <h4>
+                {student.first_name} {student.last_name}
+              </h4>
             </div>
           </Link>
         ))}

@@ -9,11 +9,11 @@
 }
 
 :root {
-  --indigo: #0D3B66;
-  --cream: #FAF0CA;
-  --yellow: #F4D35E;
-  --orange: #EE964B;
-  --red: #F95738;
+  --indigo: #0d3b66;
+  --cream: #faf0ca;
+  --yellow: #f4d35e;
+  --orange: #ee964b;
+  --red: #f95738;
 }
 
 /* font-family: 'Asap Condensed', sans-serif;
@@ -27,7 +27,7 @@ body {
 .App {
   text-align: center;
   height: 100%;
-  font-family: 'Pragati Narrow', sans-serif;
+  font-family: "Pragati Narrow", sans-serif;
   padding-left: 70px;
 }
 
@@ -36,8 +36,10 @@ a {
   color: black;
 }
 
-h1, h2, h3 {
-  font-family: 'Fredoka One', cursive;
+h1,
+h2,
+h3 {
+  font-family: "Fredoka One", cursive;
 }
 
 ul {
@@ -60,19 +62,20 @@ nav {
 }
 
 nav a {
-display: block;
-margin: 50px 0;
-color: var(--indigo);
+  display: block;
+  margin: 50px 0;
+  color: var(--indigo);
 }
 
 /*===============Homepage==============*/
 
 #home {
+  height: 100vh;
+  background: var(--cream);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   color: var(--indigo);
 }
 
@@ -82,7 +85,7 @@ color: var(--indigo);
 }
 
 .login-wrapper {
-  background: var(--cream);
+  background: var(--yellow);
   border-radius: 20px;
   padding: 30px;
   margin: 20px 0px;
@@ -111,7 +114,7 @@ color: var(--indigo);
   border: 1px solid var(--indigo);
   border-radius: 5px;
   font-size: 1.5rem;
-  font-family: 'Pragati Narrow', sans-serif;
+  font-family: "Pragati Narrow", sans-serif;
   margin: 5px 0px;
   background: white;
   color: #666;
@@ -127,7 +130,6 @@ color: var(--indigo);
 
 .thread-header {
   border-top: 1px solid var(--indigo);
-
 }
 
 .my-message {
@@ -141,8 +143,6 @@ color: var(--indigo);
   border-radius: 20px;
   margin: 10px 0 10px 50%;
 }
-
-
 
 /*============ Student Report ==========*/
 
@@ -205,7 +205,6 @@ color: var(--indigo);
   margin-right: 20px;
 }
 
-
 /*============Skills tile=============*/
 
 .skills-tile-wrapper {
@@ -250,9 +249,22 @@ color: var(--indigo);
   color: var(--indigo);
   font-size: 1.3rem;
 }
+/*===========Admin Dashboard============*/
 
-/*==============================*/
 
+
+
+/*===========Teacher Dashboard============*/
+.dashboard {
+  height: 100vh;
+  overflow: scroll;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--indigo);
+}
 .student-map {
   display: flex;
   flex-wrap: wrap;
@@ -260,15 +272,39 @@ color: var(--indigo);
 }
 
 .child-tile {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: var(--yellow);
+  color: var(--indigo);
   border-radius: 20px;
   margin: 10px;
-  padding: 5px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  padding: 10px;
+}
+
+.child-tile-overlay {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 52%, rgba(244,211,94,1) 83%);
+}
+
+.child-tile img {
+  height: 180px;
+  width: 180px;
+  border-radius: 10px;
+}
+
+.child-tile h4 {
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 10px;
+  margin: 0;
 }
 
 .admin-row {
@@ -287,5 +323,4 @@ color: var(--indigo);
   bottom: 0px;
   width: 100vw;
   background: #eee;
-  
 }
