@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_190014) do
+ActiveRecord::Schema.define(version: 2020_08_16_182755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 2020_08_14_190014) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "caregiver_id", null: false
+    t.string "content"
+    t.string "author"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["caregiver_id"], name: "index_messages_on_caregiver_id"
+    t.index ["teacher_id"], name: "index_messages_on_teacher_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "category"
     t.string "abbreviation"
@@ -106,4 +117,6 @@ ActiveRecord::Schema.define(version: 2020_08_14_190014) do
   add_foreign_key "classrooms", "teachers"
   add_foreign_key "families", "caregivers"
   add_foreign_key "families", "children"
+  add_foreign_key "messages", "caregivers"
+  add_foreign_key "messages", "teachers"
 end

@@ -10,7 +10,7 @@ class CaregiversController < ApplicationController
 
   # GET /caregivers/1
   def show
-    render json: @caregiver.to_json(include: :children)
+    render json: @caregiver.to_json(include: [:children, :messages])
   end
 
   # POST /caregivers
