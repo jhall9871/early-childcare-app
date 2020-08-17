@@ -252,3 +252,19 @@ Caregiver.find(14).families.create([
 Caregiver.find(15).families.create([
     {child_id: 15, relationship: 'father'}
 ])
+
+Message.create([
+    {teacher_id: 1, caregiver_id: 1, content: 'So glad Harrison is in your classroom!', author: 'Latoya Smith'}
+])
+
+Message.create([
+    {teacher_id: 1, caregiver_id: 1, content: 'Me too! What a cutie!', author: 'Magnolia Smith'}
+])
+
+Message.create([
+    {teacher_id: 1, caregiver_id: 2, content: 'Reginald here.', author: 'Reginald Jones'}
+])
+
+Message.create([
+    {teacher_id: 1, caregiver_id: 3, content: 'Franklin here!', author: 'Franklin Scalia'}
+])

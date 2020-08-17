@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  teacher: one
+  caregiver: one
+  content: MyString
+  author: MyString
+
+two:
+  teacher: two
+  caregiver: two
+  content: MyString
+  author: MyString

@@ -1,6 +1,23 @@
 class CaregiversController < ApplicationController
   before_action :set_caregiver, only: [:show, :update, :destroy]
 
+  # Find all caregivers associated with a teacher's classroom
+  def caregivers_from_teacher
+    @classrooms = Classroom.where(teacher_id: params[:teacher_id])
+    @families = @classrooms.map do |classroom|
+      Family.where(child_id: classroom.child_id)
+    end
+    @caregiverids = @families.map do |family|
+      family[0].caregiver_id
+    end
+    @caregivers = @caregiverids.map do |cid|
+      Caregiver.where(id: cid)
+    end
+    @caregivers.flatten!
+    render json: @caregivers
+  end
+
+
   # GET /caregivers
   def index
     @caregivers = Caregiver.all
@@ -10,7 +27,7 @@ class CaregiversController < ApplicationController
 
   # GET /caregivers/1
   def show
-    render json: @caregiver.to_json(include: :children)
+    render json: @caregiver.to_json(include: [:children, :messages])
   end
 
   # POST /caregivers
