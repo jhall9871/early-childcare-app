@@ -119,17 +119,30 @@ color: var(--indigo);
 }
 /*============ Messages ==========*/
 
+.messages {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.thread-header {
+  border-top: 1px solid var(--indigo);
+
+}
+
 .my-message {
   background: var(--orange);
   border-radius: 20px;
-  margin: 10px auto;
+  margin: 10px 50% 10px 0;
 }
 
 .their-message {
   background: var(--yellow);
   border-radius: 20px;
-  margin: 10px auto;
+  margin: 10px 0 10px 50%;
 }
+
+
 
 /*============ Student Report ==========*/
 

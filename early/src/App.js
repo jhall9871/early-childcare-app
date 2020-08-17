@@ -34,9 +34,6 @@ function App() {
     } catch (err) {
       console.error(err);
     }
-
-    // return <Redirect to={`/${userType}`} />
-
   };
 
   const handleLogInChange = (e) => {
@@ -45,10 +42,14 @@ function App() {
     });
   };
 
+  const handleLogOut = () => {
+    setUser({});
+  }
+
   return (
     <div className="App">
       <DataContext.Provider value={{ user, userType }}>
-        <Nav />
+        <Nav handleLogOut={handleLogOut}/>
         <Switch>
           <Route
             exact

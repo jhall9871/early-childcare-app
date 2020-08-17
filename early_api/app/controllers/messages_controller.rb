@@ -1,6 +1,13 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy]
 
+  # Custom Route!
+  # Get /messages/byteacher/:teacher_id
+  def messages_by_teacher
+    @messages = Message.where(teacher_id: params[:teacher_id])
+    render json: @messages
+  end
+
   # GET /messages
   def index
     @messages = Message.all

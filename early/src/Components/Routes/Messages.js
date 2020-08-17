@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../App";
+import MessageThread from "./MessageThread";
 import axios from "axios";
 
 const Messages = () => {
@@ -8,9 +9,14 @@ const Messages = () => {
   const [caregivers, setCaregivers] = useState([]);
   const id = user.id;
   const userFullName = user.first_name + " " + user.last_name;
-  const [newMessage, setNewMessage] = useState({teacher_id: user.id, author: userFullName});
+  const [newMessage, setNewMessage] = useState({
+    teacher_id: user.id,
+    author: userFullName,
+  });
+    const [showBody, setShowBody] = useState(false);
 
-    console.log(newMessage);
+    console.log("messages", messages);
+    
 
   //helper function (api call)
   const makeAPICall = async () => {
@@ -27,20 +33,23 @@ const Messages = () => {
 
   //load messages on component mount
   useEffect(() => {
-    //construct the list of all caregivers
+    //construct the list of relevant caregivers
     const caregiversAPIcall = async () => {
       try {
         const response = await axios({
-          url: `http://localhost:3000/caregivers`,
+          url: `http://localhost:3000/caregivers/fromteacher/${id}`,
           method: "GET",
         });
+        console.log("responsedata", response.data);
         setCaregivers(response.data);
       } catch (err) {
         console.error(err);
       }
     };
-    makeAPICall();
-    caregiversAPIcall();
+    if (user.id) {
+      makeAPICall();
+      caregiversAPIcall();
+    }
   }, []);
 
   //handle input on new message form
@@ -61,14 +70,31 @@ const Messages = () => {
         console.error(err);
       }
     };
-      await newMessageApiCall();
-      makeAPICall();
+    await newMessageApiCall();
+    makeAPICall();
   };
 
   return (
     <div className="messages">
       <h1>Messages</h1>
-      {messages.map((message) => {
+          {caregivers.map((caregiver) => {
+          let relevantMessages = messages.filter(message => message.caregiver_id === caregiver.id)
+        return (
+          <div className="thread-container">
+            <div className="thread-header">
+              {caregiver.first_name} {caregiver.last_name}
+                </div>
+                <div className="thread-body" id={`thread-body-${caregiver.id}`}>
+                    {relevantMessages.map(message => {
+                        return (
+                            <div key={message.id} className={message.author === userFullName ? "my-message" : "their-message"}>{message.content}</div>
+                        )
+                    })}
+                </div>
+          </div>
+        );
+      })}
+      {/* {messages.map((message) => {
         return (
           <div
             key={message.id}
@@ -76,12 +102,14 @@ const Messages = () => {
               message.author === userFullName ? "my-message" : "their-message"
             }
           >
-            <h6>{message.author}</h6>
-            <p className="message-content">{message.content}</p>
-            <p className="message-timestamp">{message.updated_at}</p>
+            <div className="message-bubble">
+              <h6>{message.author}</h6>
+              <p className="message-content">{message.content}</p>
+              <p className="message-timestamp">{message.updated_at}</p>
+            </div>
           </div>
         );
-      })}
+      })}*/}
       <div className="message-form-containter">
         <form onSubmit={handleSubmit}>
           <label>To:</label>
@@ -103,7 +131,7 @@ const Messages = () => {
           ></input>
           <input type="submit"></input>
         </form>
-      </div>
+      </div> 
     </div>
   );
 };
