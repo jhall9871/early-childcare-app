@@ -1,6 +1,24 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :update, :destroy]
 
+  # Find all teachers associated with a caregiver's children
+  def teachers_from_caregiver
+    @families = Family.where(caregiver_id: params[:caregiver_id])
+    @children = @families.map do |family|
+      Child.where(id: family.child_id)
+    end
+    @children.flatten!
+    @classrooms = @children.map do |child|
+      Classroom.where(child_id: child.id)
+    end
+    @classrooms.flatten!
+    @teachers = @classrooms.map do |classroom|
+      Teacher.where(id: classroom.teacher_id)
+    end
+    @teachers.flatten!
+    render json: @teachers
+  end
+
   # GET /teachers
   def index
     @teachers = Teacher.all

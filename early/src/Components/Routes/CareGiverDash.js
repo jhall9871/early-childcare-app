@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../App";
+import apiUrl from "../../apiConfig";
 import axios from "axios";
 
 const CareGiverDash = () => {
   const [children, setChildren] = useState([]);
-    
+  const { user, userType } = useContext(DataContext);
+
   // When component mounts, get all students and set in state.
   useEffect(() => {
     const makeAPICall = async () => {
       try {
         const response = await axios({
-          url: `http://localhost:3000/caregivers/1`,
+          url: `${apiUrl}/caregivers/${user.id}`,
           method: "GET",
         });
         setChildren(response.data.children);
@@ -23,15 +26,20 @@ const CareGiverDash = () => {
 
   return (
     <div className="dashboard" id="caregiver-dash">
-          <h2>Caregiver Dashboard</h2>
-          <h3>My children:</h3>
-          {children.map(child => (
-            <Link key={child.id} to={`/childreport/${child.id}`}>
+      <h2>Caregiver Dashboard</h2>
+      <h3>My children:</h3>
+      <div className="student-map">
+        {children.map((child) => (
+          <Link key={child.id} to={`/childreport/${child.id}`}>
             <div className="child-tile">
-                    <h4>{child.first_name} {child.last_name}</h4>
+              <img src={child.photo} />
+              <h4>
+                {child.first_name} {child.last_name}
+              </h4>
             </div>
           </Link>
-          ))}
+        ))}
+      </div>
     </div>
   );
 };

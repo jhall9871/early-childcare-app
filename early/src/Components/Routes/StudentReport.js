@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Redirect } from 'react-router-dom';
 import { DataContext } from "../../App";
 import SkillsTile from "./SkillsTile";
 import axios from "axios";
+import apiUrl from "../../apiConfig";
 
 const StudentReport = (props) => {
   const { user, userType } = useContext(DataContext);
@@ -12,7 +14,7 @@ const StudentReport = (props) => {
   const makeAPICall = async () => {
     try {
       const response = await axios({
-        url: `http://localhost:3000/children/${id}`,
+        url: `${apiUrl}/children/${id}`,
         method: "GET",
       });
       setStudent(response.data);
@@ -25,6 +27,11 @@ const StudentReport = (props) => {
   useEffect(() => {
     makeAPICall();
   }, []);
+
+  if (user.id === undefined) {
+    console.log('redirecting')
+    return <Redirect to={'/'} />
+  }
 
   //helper function for ordered lists
   const compare = (a, b) => {
@@ -89,7 +96,7 @@ const StudentReport = (props) => {
     let newStatus = !student.abilities[skillId - 1].status;
     try {
       await axios({
-        url: `http://localhost:3000/abilities/${abilityId}?status=${newStatus}`,
+        url: `${apiUrl}/abilities/${abilityId}?status=${newStatus}`,
         method: "PUT",
       });
     } catch (err) {
@@ -98,19 +105,19 @@ const StudentReport = (props) => {
     makeAPICall();
   };
 
-  //click function for non-teachers
-  const handleInvalidClick = () => {
-    console.log("only teachers can do that.");
-  };
-
   //calculate student age (thank you, https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd)
   const getAge = (dateString) => {
     let today = new Date();
     let birthDate = new Date(dateString);
     let age = today.getFullYear() - birthDate.getFullYear();
     let m = today.getMonth() - birthDate.getMonth();
+    console.log('birthday', birthDate, 'age', age, 'm', m)
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
       age--;
+    }
+    if (age < 2) {
+      age *= 12;
+      age += " months";
     }
     return age;
   };
@@ -135,49 +142,41 @@ const StudentReport = (props) => {
         <SkillsTile
           skills={grossmotorskills}
           abilities={grossmotorabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={kitchenskills}
           abilities={kitchenabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={selfskills}
           abilities={selfabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={envskills}
           abilities={envabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={mannersskills}
           abilities={mannersabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={fineskills}
           abilities={fineabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={artskills}
           abilities={artabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
         <SkillsTile
           skills={lifeskills}
           abilities={lifeabilities}
-          handleInvalidClick={handleInvalidClick}
           handleSkillClick={handleSkillClick}
         />
       </div>

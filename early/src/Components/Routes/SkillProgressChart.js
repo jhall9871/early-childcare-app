@@ -8,10 +8,10 @@ const SkillProgressChart = ({ complete, incomplete }) => {
       {
         label: "My First dataset",
         backgroundColor: ["#0D3B66", "#EE964B"],
-        borderColor: ["rgba(0,0,0,1)", "rgba(0,0,0,0)"],
+        borderColor: ["rgba(0,0,0,0)", "rgba(0,0,0,0)"],
         borderWidth: 1,
         hoverBackgroundColor: "rgba(0,0,0,0.4)",
-        hoverBorderColor: "rgba(0,0,0,1)",
+        hoverBorderColor: "rgba(0,0,0,0)",
         data: [complete, incomplete],
       },
     ],

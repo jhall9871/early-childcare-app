@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBirthdayCake, faChalkboardTeacher, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import apiUrl from "../../apiConfig";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBirthdayCake,
+  faChalkboardTeacher,
+  faUserFriends,
+  faPlusCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const AdminDash = () => {
   const [students, setStudents] = useState([]);
   const [teachers, setTeachers] = useState([]);
   const [newChild, setNewChild] = useState({});
   const [teacherAssignment, setTeacherAssignment] = useState(null);
+  const [showModal, setShowModal] = useState("none");
 
   //helper function for ordered lists
   const compare = (a, b) => {
@@ -30,7 +37,7 @@ const AdminDash = () => {
   const makeAPICall = async () => {
     try {
       const response = await axios({
-        url: `http://localhost:3000/children`,
+        url: `${apiUrl}/children`,
         method: "GET",
       });
       setStudents(response.data);
@@ -39,7 +46,7 @@ const AdminDash = () => {
     }
     try {
       const teacherResponse = await axios({
-        url: `http://localhost:3000/teachers`,
+        url: `${apiUrl}/teachers`,
         method: "GET",
       });
       setTeachers(teacherResponse.data);
@@ -59,7 +66,7 @@ const AdminDash = () => {
     let childId = e.target.value;
     try {
       await axios({
-        url: `http://localhost:3000/children/${childId}`,
+        url: `${apiUrl}/children/${childId}`,
         method: "DELETE",
       });
     } catch (err) {
@@ -81,7 +88,7 @@ const AdminDash = () => {
     e.preventDefault();
     const newChildApiCall = async () => {
       try {
-        await axios.post(`http://localhost:3000/children`, newChild);
+        await axios.post(`${apiUrl}/children`, newChild);
       } catch (err) {
         console.error(err);
       }
@@ -107,46 +114,77 @@ const AdminDash = () => {
     const teacherAssignAPICall = async () => {
       try {
         await axios({
-          url: `http://localhost:3000/classrooms?child_id=${stdt}&teacher_id=${tchr}`,
-          method: "POST"
-        })
+          url: `${apiUrl}/classrooms?child_id=${stdt}&teacher_id=${tchr}`,
+          method: "POST",
+        });
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
-    }
+    };
     await teacherAssignAPICall();
     makeAPICall();
+  };
+
+  //handle the button to show the modal add student form
+  const handleShowModal = () => {
+    if (showModal === "none") {
+      setShowModal("block");
+    } else {
+      setShowModal("none");
+    }
   };
 
   if (students.length > 0) {
     return (
       <div className="dashboard" id="admin-dash">
         <h2>Admin Dash</h2>
+        <button id="add-child-button" onClick={handleShowModal}>
+          <FontAwesomeIcon icon={faPlusCircle} />
+        </button>
         <ul>
           {orderedStudentsList.map((student) => (
             <li key={student.id} className="admin-row">
-              Name: {student.first_name} {student.last_name} | <FontAwesomeIcon icon={faBirthdayCake}/>{" "}
-              {student.birthday} |
-              <FontAwesomeIcon icon={faUserFriends} /> {student.caregivers.length > 0 ? student.caregivers[0].first_name : ""} | 
-              <FontAwesomeIcon icon={faChalkboardTeacher} /> {student.teachers.length > 0 ? student.teachers[0].last_name : ""}
-              
+              <img src={student.photo}></img>
+              <div className="student-info">
+                <h4 className="admin-student-name">
+                  {student.first_name} {student.last_name} <span className="pronouns">({student.pronouns})</span>
+                </h4>
+                <div className="birthday">
+                  <FontAwesomeIcon icon={faBirthdayCake} />
+                  {student.birthday}
+                </div>
+                <div className="admin-caregiver">
+                  <FontAwesomeIcon icon={faUserFriends} />
+                  {student.caregivers.length > 0
+                    ? `${student.caregivers[0].first_name} ${student.caregivers[0].last_name}`
+                    : ""}
+                </div>
+                <FontAwesomeIcon icon={faChalkboardTeacher} />
+                {student.teachers.length > 0
+                  ? `${student.teachers[0].salutation} ${student.teachers[0].last_name}`
+                  : ""}
+              </div>
               <form onSubmit={handleAssignment}>
                 <label>Assign a new teacher:</label>
                 <select onChange={handleTeacherSelect}>
-                <option value=""></option>
-                  {teachers.map(teacher => {
-                    return <option value={student.id + " " + teacher.id}>{teacher.last_name}</option>
-                })}
+                  <option value=""></option>
+                  {teachers.map((teacher) => {
+                    return (
+                      <option value={student.id + " " + teacher.id}>
+                        {teacher.last_name}
+                      </option>
+                    );
+                  })}
                 </select>
-                <input type="submit" value="assign"></input>
+                <input id="assign-submit" type="submit" value="Assign"></input>
               </form>
               <button value={student.id} onClick={handleDelete}>
-                Delete
+                Remove Student
               </button>
             </li>
           ))}
         </ul>
-        <div className="add-child-form">
+        <div className="add-child-form" style={{ display: showModal }}>
           <h3>Add a child:</h3>
           <form onSubmit={handleSubmit}>
             <label>First Name</label>
