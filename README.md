@@ -58,6 +58,8 @@ Join Tables:
 
 ## Libraries and Resources
 - ChartJS (data visualization)
-- Create-React-App (front-end)
+- FontAwesome (icons)
+- Axios (API requests)
+- Create-React-App (front end)
 - DBDiagram.io (database planning)
 - Miro.com (wireframes, front-end mapping)
