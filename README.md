@@ -5,7 +5,16 @@ Early is a one-stop shop for Montessori schools, daycares, and other early child
 
 ## Status
 
-Demo MVP with seed data is live at https://panoramic-pergola.surge.sh/
+- Demo MVP with seed data is live at https://panoramic-pergola.surge.sh/
+- Post-MVP features have not been built out
+
+## To Do
+
+- Improve initial load time when users log in.
+- Create spinner animation to run while user loads.
+- Make the "+" icon to add students (as admin) change to "x" when modal opens.
+- When submitting a message, the message input box should clear.
+- Improve accessibility site-wide. Keyboard accessibility, labels/alt text for icons, tab navigation need addressing.
 
 ## User Stories
 
