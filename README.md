@@ -20,7 +20,7 @@ As a teacher, I should be able to:
 2. Message my students' caregivers
 
 As a caregiver, I should be able to:
-1. Vie my child's progress toward various goals
+1. View my child's progress toward various goals
 2. Message my child's teachers
 
 ### Post-MVP:
@@ -58,49 +58,6 @@ Join Tables:
 
 ## Libraries and Resources
 - ChartJS (data visualization)
+- Create-React-App (front-end)
 - DBDiagram.io (database planning)
 - Miro.com (wireframes, front-end mapping)
-
-## Sample code
-
-
-#### Helper function to create student lists sorted by ID, rather than by array order:
-```
-  const compare = (a, b) => {
-    let comparison = 0;
-    if (a.id > b.id) {
-      comparison = 1;
-    } else if (b.id > a.id) {
-      comparison = -1;
-    }
-    return comparison;
-  };
-```
-
-#### Assign 104 random skill statuses to each of 15 sample students for seed data:
-```
-1.upto(15) do |i| 
-    1.upto(104) do |j|
-        random_boolean = [true, false].sample
-        Ability.create({child_id: i, skill_id: j, status: random_boolean})
-    end
-end
-```
-
-#### Traverse across 3 join tables to find all caregivers associated with a given teacher:
-```
-  def caregivers_from_teacher
-    @classrooms = Classroom.where(teacher_id: params[:teacher_id])
-    @families = @classrooms.map do |classroom|
-      Family.where(child_id: classroom.child_id)
-    end
-    @caregiverids = @families.map do |family|
-      family[0].caregiver_id
-    end
-    @caregivers = @caregiverids.map do |cid|
-      Caregiver.where(id: cid)
-    end
-    @caregivers.flatten!
-    render json: @caregivers
-  end
-```
