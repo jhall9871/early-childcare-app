@@ -1,4 +1,8 @@
 # Early
+
+## Update Dec 2022
+Unfortunately Heroku has discontinued its free tier, so until further notice, the app will not work as deployed.
+
 ## Track enrollment and student progress at an early childhood care facility
 
 Early is a one-stop shop for Montessori schools, daycares, and other early childhood care facilities to manage enrollment, student progress, and communication. Caregivers, teachers, and administrators are able to log in and manage data important to the running of the school and the well-being of the children in their care.
